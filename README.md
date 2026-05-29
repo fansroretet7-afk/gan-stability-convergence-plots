@@ -1,4 +1,4 @@
-GAN Stability: Extragradient vs Optimistic Gradient
+#GAN Stability: Extragradient vs Optimistic Gradient
 
 Repository for experiments from the SPbU research practice report:
 
