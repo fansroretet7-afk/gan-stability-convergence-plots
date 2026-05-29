@@ -5,9 +5,8 @@ import numpy as np
 import math
 
 
-# ==========================================
+
 # 1. Генерация данных: 2D Gaussian Mixture
-# ==========================================
 def get_gmm_samples(batch_size, radius=2.0, num_modes=8, std=0.1):
     """Генерирует батч точек из смеси 8 гауссиан, расположенных по кругу."""
     modes = np.random.randint(0, num_modes, batch_size)
@@ -18,9 +17,7 @@ def get_gmm_samples(batch_size, radius=2.0, num_modes=8, std=0.1):
     return torch.tensor(samples, dtype=torch.float32)
 
 
-# ==========================================
 # 2. Архитектуры Нейросетей
-# ==========================================
 class Generator(nn.Module):
     def __init__(self, latent_dim=2, out_dim=2):
         super().__init__()
@@ -51,9 +48,8 @@ class Discriminator(nn.Module):
         return self.net(x)
 
 
-# ==========================================
+
 # 3. Функция обучения с выбором метода
-# ==========================================
 def train_toy_gan(method='GDA', iterations=5000, batch_size=256, lr=0.01):
     print(f"Запуск обучения методом: {method}")
 
@@ -132,9 +128,9 @@ def train_toy_gan(method='GDA', iterations=5000, batch_size=256, lr=0.01):
     return G
 
 
-# ==========================================
-# 4. Визуализация результатов (Без наложения текста)
-# ==========================================
+
+# 4. Визуализация результатов 
+
 def plot_results(G_dict):
     real_samples = get_gmm_samples(1000).numpy()
     z = torch.randn(1000, 2)
@@ -149,18 +145,16 @@ def plot_results(G_dict):
         ax.scatter(real_samples[:, 0], real_samples[:, 1], alpha=0.4, label='Real Data', c='blue', s=12)
         ax.scatter(fake_samples[:, 0], fake_samples[:, 1], alpha=0.6, label='Generated', c='red', s=12)
 
-        # Настройка заголовков и осей с отступами
+       
         ax.set_title(f"Метод: {method_name}", fontsize=13, pad=10)
         ax.set_xlim(-4, 4)
         ax.set_ylim(-4, 4)
         ax.set_xlabel("X", fontsize=10, labelpad=5)
         ax.set_ylabel("Y", fontsize=10, labelpad=5)
 
-        # Легенда уменьшенного размера в верхнем правом углу, чтобы не мешать точкам
+        
         ax.legend(loc='upper right', fontsize=9, framealpha=0.8)
         ax.grid(True, linestyle='--', alpha=0.6)
-
-    # Автоматическое выравнивание и явные увеличенные интервалы между подграфиками
     plt.tight_layout()
     plt.subplots_adjust(wspace=0.25)  # Контроль расстояния по горизонтали между графиками
 
@@ -168,9 +162,7 @@ def plot_results(G_dict):
     plt.show()
 
 
-# ==========================================
-# Запуск экспериментов
-# ==========================================
+
 if __name__ == "__main__":
     torch.manual_seed(42)
     np.random.seed(42)
