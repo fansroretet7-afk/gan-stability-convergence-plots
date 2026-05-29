@@ -1,5 +1,5 @@
 
-#*«Экстраградиентные и оптимистичные методы в обучении GAN: вариационные неравенства, монотонность и устойчивость состязательного генеративного обучения»*#
+# *«Экстраградиентные и оптимистичные методы в обучении GAN: вариационные неравенства, монотонность и устойчивость состязательного генеративного обучения»*
 
 О проекте
 
@@ -18,29 +18,27 @@
 * спектральные свойства Якобиана;
 * влияние шага обучения и регуляризации.
 
-Установка
+## Установка
 
 git clone https://github.com/artursamvelyan/gan-stability-convergence-plots.git
 cd gan-stability-convergence-plots
 pip install -r requirements.txt
 
-Запуск экспериментов
+## Запуск экспериментов
 
-Vanilla GDA
+* Vanilla GDA
 
 python src/train_vanilla.py
 
-Extragradient
+* Extragradient
 
 python src/train_extragradient.py
 
-Optimistic Gradient
+* Optimistic Gradient
 
 python src/train_optimistic.py
 
-Результаты
+## Воспроизводимость
+Все эксперименты используют фиксированные random seed.
 
-Результаты экспериментов (графики, траектории параметров и спектральный анализ) сохраняются в папке:
-
-results/
 
