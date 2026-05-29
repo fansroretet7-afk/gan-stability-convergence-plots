@@ -1,62 +1,55 @@
-#GAN Stability: Extragradient vs Optimistic Gradient
+Экстраградиентные и оптимистичные методы в обучении GAN
 
-Repository for experiments from the SPbU research practice report:
+Репозиторий с кодом и экспериментами к учебной практике СПбГУ по теме:
 
-“Extragradient and Optimistic Methods in GAN Training:
-Variational Inequalities, Monotonicity and Stability of Adversarial Learning”
+«Экстраградиентные и оптимистичные методы в обучении GAN: вариационные неравенства, монотонность и устойчивость состязательного генеративного обучения»
 
-Overview
+О проекте
 
-This repository contains implementations and experiments comparing:
+В работе исследуется устойчивость обучения генеративно-состязательных сетей (GAN) и проводится сравнение методов:
 
-* Vanilla Gradient Descent-Ascent (GDA)
-* Extragradient Method (Korpelevich correction)
-* Optimistic Gradient Descent (OGDA)
+* Vanilla GDA — стандартный градиентный спуск-восхождение;
+* Extragradient (EG) — экстраградиентный метод;
+* Optimistic Gradient Descent (OGDA) — оптимистичный метод.
 
-for stabilizing GAN training on toy 2D Gaussian mixture datasets.
+Эксперименты выполнены на toy-GAN с двумерным распределением (смесь 8 гауссиан).
 
+Исследуются:
 
+* устойчивость обучения;
+* циклическая динамика;
+* спектральные свойства Якобиана;
+* влияние шага обучения и регуляризации.
 
-Installation
+Установка
 
-Clone repository:
-
-git clone https://github.com/USERNAME/gan-stability-convergence-plots.git
+git clone https://github.com/artursamvelyan/gan-stability-convergence-plots.git
 cd gan-stability-convergence-plots
-
-Install dependencies:
-
 pip install -r requirements.txt
 
-Run experiments
+Запуск экспериментов
 
-Vanilla GDA:
+Vanilla GDA
 
 python src/train_vanilla.py
 
-Extragradient:
+Extragradient
 
 python src/train_extragradient.py
 
-Optimistic GD:
+Optimistic Gradient
 
 python src/train_optimistic.py
 
-Run full experiment suite:
+Результаты
 
-python experiments/run_all.py
+Результаты экспериментов (графики, траектории параметров и спектральный анализ) сохраняются в папке:
 
-Reproducibility
+results/
 
-Fixed random seed is used.
+Автор
 
-Toy dataset:
-8 Gaussian mixture on a circle (2D).
-
-Results
-
-Example trajectory and Jacobian spectrum:
-
-Citation
-
-SPbU Research Practice Report, 2026.
+Самвелян Артур Хачатурович
+Санкт-Петербургский государственный университет
+Направление: Прикладная математика и информатика
+2026
