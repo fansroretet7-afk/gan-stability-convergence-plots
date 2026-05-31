@@ -39,6 +39,6 @@ python src/train_extragradient.py
 python src/train_optimistic.py
 
 ## Воспроизводимость
-Все эксперименты используют фиксированные random seed.
+SEED=42
 
 
